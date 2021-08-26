@@ -1,0 +1,34 @@
+import javax.swing.JOptionPane;
+public class lec31 {
+
+	public static void main(String[] args) {
+        
+        int x=0;
+        int n= Integer.parseInt(JOptionPane.showInputDialog("أدخل عدد المتدربين"));
+        String s="أسماء المتدربين الناجحين هم"+"\n";
+        String names[]=new String[n];
+        int grades []=new int [n];
+        for (int i=0 ; i<names.length;i++){
+            names[i]= JOptionPane.showInputDialog("أدخل إسم الطالب رقم: "+(i+1));
+            grades[i] = Integer.parseInt(JOptionPane.showInputDialog("أدخل درجة الطالب رقم: "+(i+1))); }
+        for (int i=0 ; i< names.length ; i++)
+            if (grades[i]>=60){ s+=names[i]+"\n"; x++; }
+        JOptionPane.showMessageDialog(null, s);
+      
+        for (int i=0; i< names.length ; i++)
+            for (int j=1 ; j<names.length;j++)
+            if (grades[j]>grades[i]) {
+                int t=grades[i];
+                grades[i] = grades[j];
+                grades[j]=t;
+                
+                String g=names[i];
+                names[i] = names[j];
+                names[j]=g;
+            }
+        JOptionPane.showMessageDialog(null, "المتدرب صاحب أعلى درجة هو: "+names[0]);
+
+
+	}
+
+}
